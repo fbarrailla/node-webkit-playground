@@ -1,0 +1,26 @@
+{
+  "name": "node_webkit_poc",
+  "version": "1.0.0",
+  "description": "Tests with NW",
+  "main": "app/index.html",
+  "scripts": {
+    "start": "npm run nw",
+    "nw": "./node_modules/.bin/nodewebkit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbarrailla/node-webkit-playground.git"
+  },
+  "keywords": [
+    "nodewebkit",
+    "poc"
+  ],
+  "author": "François Barrailla",
+  "license": "ISC",
+  "dependencies": {
+    "nodewebkit": "^0.11.6"
+  },
+  "window": {
+    "show": false
+  }
+}

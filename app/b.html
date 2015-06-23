@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>B</title>
+	<link rel="stylesheet" href="./common.css">
+	<style>		
+		.wrapper { background: steelblue; }		
+		#drop { 
+			width: 150px; 
+			height: 150px; 
+			border: 1px solid #FFF; 
+		}
+		#drop:before {
+			content: "Drop Zone";
+			line-height: 30px;
+			margin-left: 5px;
+		}
+	</style>	
+</head>
+<body>
+	<div class="wrapper">
+		<div class="head"></div>
+
+		<button id="reduce">Reduce</button>
+		<button id="expand" style="display:none;">Expand</button>
+		<button id="min">Minimize</button>
+		<button id="close">Close</button>
+		<br>
+		<div id="drop">
+		</div>		
+	</div>
+	<script>
+		var gui = require('nw.gui');
+        var win = gui.Window.get();     
+		var $_ = document.querySelector.bind(document);
+		win.x = 1000;
+		$_('#min').addEventListener('click', function(){
+			win.minimize();
+		});
+		$_('#close').addEventListener('click', function(){
+			win.close();
+		});
+		$_('#reduce').addEventListener('click', function(){
+			this.style.display = 'none';
+			$_('#expand').style.display = '';
+			win.height = 150;
+		});
+		$_('#expand').addEventListener('click', function(){
+			this.style.display = 'none';
+			$_('#reduce').style.display = '';
+			win.height = 450;
+		});
+		window.addEventListener('dragover', function(evt){
+			evt.preventDefault();
+		});
+		window.addEventListener('drop', function(evt){
+			evt.preventDefault();
+		});
+		$_('#drop').addEventListener('drop', function(evt){
+			evt.preventDefault();
+			var img = new Image();
+			img.src = evt.dataTransfer.getData("src");
+    		//evt.target.innerHTML = 'dropped !';
+    		evt.target.appendChild(img);
+		});
+	</script>
+</body>
+</html>

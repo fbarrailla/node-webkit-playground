@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>A</title>
+	<link rel="stylesheet" href="./common.css">
+	<style>
+		.wrapper { background: skyblue; }		
+	</style>
+</head>
+<body>	
+	<div class="wrapper">
+		<div class="head"></div>
+		<button id="move">Move</button>
+		<br>
+		<img draggable="true" src="./public/images/logo-nw.png" alt="">
+	</div>
+	<script>
+		var gui = require('nw.gui');
+        var win = gui.Window.get();  
+		var $_ = document.querySelector.bind(document);
+		win.x = 300;
+		$_('#move').addEventListener('click', function(){
+			win.moveTo(30, 30);
+		});
+		$_('img').addEventListener('dragstart', function(evt){
+			evt.dataTransfer.setData('src', this.src);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+html {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.head { 
+	-webkit-app-region: drag;
+	height: 30px;
+	background: #F4F4F4;
+	text-align: center;
+}
+
+.head:before {
+	content: "grip zone";
+	line-height: 30px;
+}
+
+.wrapper {
+	padding: 20px;
+	box-shadow: 0 0 5px black;
+}
+
+.wrapper * + * {
+	margin-top: 10px;
+}

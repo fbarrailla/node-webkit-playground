@@ -1,4 +1,4 @@
-node_webkit_poc
+Node Webkit Playground
 ===============
 
-POC with Node Webkit
+![screenshot](screenshot.png)

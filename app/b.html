@@ -29,6 +29,7 @@
 		<br>
 		<div id="drop">
 		</div>		
+		<h4 id="ls"></h4>
 	</div>
 	<script>
 		var gui = require('nw.gui');
@@ -64,6 +65,10 @@
     		//evt.target.innerHTML = 'dropped !';
     		evt.target.appendChild(img);
 		});
+		window.addEventListener('storage', function(evt){
+			$_('#ls').innerHTML = evt.newValue;
+		});
+		$_('#ls').innerHTML = localStorage.getItem('ls') || '';
 	</script>
 </body>
 </html>

@@ -14,6 +14,7 @@
 		<button id="move">Move</button>
 		<br>
 		<img draggable="true" src="./public/images/logo-nw.png" alt="">
+		<input type="text" id="ls" placeholder="Local stored">
 	</div>
 	<script>
 		var gui = require('nw.gui');
@@ -26,6 +27,10 @@
 		$_('img').addEventListener('dragstart', function(evt){
 			evt.dataTransfer.setData('src', this.src);
 		});
+		$_('#ls').addEventListener('keyup', function(){
+			localStorage.setItem('ls', this.value);
+		});
+		$_('#ls').value = localStorage.getItem('ls') || '';
 	</script>
 </body>
 </html>
